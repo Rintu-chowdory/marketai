@@ -10,6 +10,7 @@ const nav = [
   { to: '/case-studies', label: 'Case Studies' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
