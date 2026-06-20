@@ -18,14 +18,14 @@ export default function Contact() {
       <section className="grid-bg" style={{ padding: '80px 24px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%,-50%)', width: 500, height: 300, background: 'radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 600, margin: '0 auto' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: 100, padding: '6px 16px', marginBottom: 24 }}>
+          <div className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: 100, padding: '6px 16px', marginBottom: 24 }}>
             <Mail size={13} color="#a78bfa" />
             <span style={{ color: '#a78bfa', fontSize: 13, fontWeight: 500 }}>Get In Touch</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(36px, 5vw, 58px)', fontWeight: 900, color: 'white', letterSpacing: '-1.5px', marginBottom: 16 }}>
+          <h1 className="animate-on-scroll" style={{ fontSize: 'clamp(36px, 5vw, 58px)', fontWeight: 900, color: 'white', letterSpacing: '-1.5px', marginBottom: 16 }}>
             Let's Build Something <span className="gradient-text">Remarkable</span>
           </h1>
-          <p style={{ color: '#64748b', fontSize: 17, lineHeight: 1.7 }}>
+          <p className="animate-on-scroll" style={{ color: '#64748b', fontSize: 17, lineHeight: 1.7 }}>
             Free strategy call. No sales pitch. Just a real conversation about your growth.
           </p>
         </div>
@@ -36,13 +36,14 @@ export default function Contact() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'start' }}>
           {/* Info */}
           <div>
-            <h2 style={{ color: 'white', fontSize: 22, fontWeight: 700, marginBottom: 24 }}>Contact Information</h2>
-            {[
-              { icon: Mail, label: 'Email Us', value: 'hello@marketai.com', color: '#7c3aed' },
-              { icon: Phone, label: 'Call Us', value: '+1 (234) 567-890', color: '#0ea5e9' },
-              { icon: MapPin, label: 'Visit Us', value: '123 Innovation Street, Tech City, TC 10001', color: '#10b981' },
-            ].map(({ icon: Icon, label, value, color }) => (
-              <div key={label} className="glass" style={{ padding: '20px 24px', borderRadius: 14, marginBottom: 16, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+            <h2 className="animate-on-scroll" style={{ color: 'white', fontSize: 22, fontWeight: 700, marginBottom: 24 }}>Contact Information</h2>
+            <div className="stagger-children" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {[
+                { icon: Mail, label: 'Email Us', value: 'hello@marketai.com', color: '#7c3aed' },
+                { icon: Phone, label: 'Call Us', value: '+1 (234) 567-890', color: '#0ea5e9' },
+                { icon: MapPin, label: 'Visit Us', value: '123 Innovation Street, Tech City, TC 10001', color: '#10b981' },
+              ].map(({ icon: Icon, label, value, color }) => (
+                <div key={label} className="animate-on-scroll glass" style={{ padding: '20px 24px', borderRadius: 14, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: color + '22', border: '1px solid ' + color + '33', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Icon size={16} color={color} />
                 </div>
@@ -51,9 +52,10 @@ export default function Contact() {
                   <div style={{ color: 'white', fontSize: 14 }}>{value}</div>
                 </div>
               </div>
-            ))}
+              ))}
+            </div>
 
-            <div className="glass" style={{ padding: '24px', borderRadius: 14, marginTop: 24, background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.04))', border: '1px solid rgba(124,58,237,0.2)' }}>
+            <div className="animate-on-scroll glass" style={{ padding: '24px', borderRadius: 14, marginTop: 24, background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.04))', border: '1px solid rgba(124,58,237,0.2)' }}>
               <Zap size={18} color="#a78bfa" style={{ marginBottom: 12 }} />
               <h3 style={{ color: 'white', fontSize: 15, fontWeight: 600, marginBottom: 8 }}>What to expect</h3>
               {[
@@ -81,7 +83,7 @@ export default function Contact() {
                 <p style={{ color: '#64748b', fontSize: 15, lineHeight: 1.7 }}>We'll be in touch within 2 business hours. Looking forward to it.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass" style={{ padding: '32px', borderRadius: 20 }}>
+              <form onSubmit={handleSubmit} className="animate-on-scroll glass" style={{ padding: '32px', borderRadius: 20 }}>
                 <h2 style={{ color: 'white', fontSize: 20, fontWeight: 700, marginBottom: 24 }}>Send Us a Message</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
                   {[
