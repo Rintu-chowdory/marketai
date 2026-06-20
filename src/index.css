@@ -154,3 +154,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 
 .hidden { display: none !important; }
 @media(min-width:768px) { .md\:flex { display:flex !important; } }
+
+/* ── Theme toggle ── */
+.theme-light .hero-bg { background: #f8f9ff; }
+.theme-light .glass { background: rgba(0,0,0,0.04) !important; border-color: rgba(0,0,0,0.08) !important; }
+.theme-light body, .theme-light [style*="#080810"] { background: #f8f9ff !important; }
+.theme-light .text-white { color: #0f0a1e !important; }
+.theme-light .text-gray-400 { color: #64748b !important; }
