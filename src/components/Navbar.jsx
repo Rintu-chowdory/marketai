@@ -36,6 +36,35 @@ export default function Navbar() {
       borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
       transition: 'all 0.3s ease'
     }}>
+      <style>{`
+        @keyframes slideDownMenu {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes slideInLink {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .mobile-menu {
+          animation: slideDownMenu 0.4s cubic-bezier(0.32, 0.72, 0.3, 1) forwards;
+        }
+        .mobile-menu a {
+          animation: slideInLink 0.4s cubic-bezier(0.32, 0.72, 0.3, 1) backwards;
+        }
+      `}</style>
+
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -83,7 +112,16 @@ export default function Navbar() {
             background: 'linear-gradient(135deg,#7c3aed,#4f46e5)', color: 'white',
             boxShadow: '0 4px 15px rgba(124,58,237,0.35)', transition: 'all 0.2s'
           }}>Get Started</Link>
-          <button onClick={() => setOpen(!open)} style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', display: 'flex', padding: 4 }} className="md:hidden">
+          <button onClick={() => setOpen(!open)} style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#94a3b8',
+            cursor: 'pointer',
+            display: 'flex',
+            padding: 4,
+            transition: 'transform 0.3s ease, color 0.3s ease',
+            transform: open ? 'rotate(90deg)' : 'rotate(0deg)'
+          }} className="md:hidden">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -91,13 +129,22 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div style={{ background: 'rgba(8,8,16,0.99)', borderTop: '1px solid rgba(124,58,237,0.15)', padding: '16px 24px 24px' }}>
-          {[...nav, { to: '/dashboard', label: 'Live Demo' }, { to: '/contact', label: 'Contact' }].map(n => (
+        <div className="mobile-menu" style={{
+          background: 'rgba(8,8,16,0.99)',
+          borderTop: '1px solid rgba(124,58,237,0.15)',
+          padding: '16px 24px 24px'
+        }}>
+          {[...nav, { to: '/dashboard', label: 'Live Demo' }, { to: '/contact', label: 'Contact' }].map((n, idx) => (
             <Link key={n.to} to={n.to} style={{
               display: 'block', textDecoration: 'none', padding: '13px 0',
               color: loc.pathname === n.to ? '#a78bfa' : '#94a3b8',
-              fontSize: 15, fontWeight: 500, borderBottom: '1px solid rgba(255,255,255,0.04)'
-            }}>{n.label}</Link>
+              fontSize: 15, fontWeight: 500, borderBottom: '1px solid rgba(255,255,255,0.04)',
+              animation: `slideInLink 0.4s cubic-bezier(0.32, 0.72, 0.3, 1) ${0.08 * idx}s backwards`,
+              transition: 'color 0.2s'
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = '#a78bfa'}
+            onMouseLeave={e => e.currentTarget.style.color = (loc.pathname === n.to ? '#a78bfa' : '#94a3b8')}
+            >{n.label}</Link>
           ))}
         </div>
       )}
