@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useEffect, useLocation } from 'react-router-dom'
+import { useEffect as useEff } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -11,10 +11,14 @@ import Pricing from './pages/Pricing.jsx'
 import Blog from './pages/Blog.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import { refreshScrollAnimations } from './main.jsx'
 
 function ScrollReset() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    refreshScrollAnimations()
+  }, [pathname])
   return null
 }
 
