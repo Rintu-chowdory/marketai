@@ -1,4 +1,4 @@
-import { Brain, BarChart3, Zap, Target, Globe, Megaphone, ArrowRight } from 'lucide-react'
+import { Brain, BarChart3, Zap, Target, Globe, Megaphone, ArrowRight, Smartphone, Laptop } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const services = [
@@ -60,11 +60,72 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Device mockup section */}
+      <section style={{ padding: '80px 24px', position: 'relative', overflow: 'hidden' }}>
+        <div className="orb orb-1" style={{ top: '10%', right: '-10%' }} />
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60 }}>
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 900, color: 'white', letterSpacing: '-1.2px', marginBottom: 16 }}>
+              See it in action
+            </h2>
+            <p style={{ color: '#64748b', fontSize: 17, maxWidth: 520, margin: '0 auto' }}>
+              Our platform works seamlessly across all devices.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 32, maxWidth: 900, margin: '0 auto' }}>
+            {/* Desktop mockup */}
+            <div className="animate-on-scroll" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ width: '100%', maxWidth: 320, marginBottom: 24 }}>
+                <div style={{ position: 'relative', width: '100%', background: '#0d0d1a', border: '2px solid rgba(124,58,237,0.3)', borderRadius: '16px 16px 0 0', padding: '12px', boxShadow: '0 -4px 40px rgba(124,58,237,0.15)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#ff5f57' }} />
+                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#febc2e' }} />
+                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#28c840' }} />
+                  </div>
+                  <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80"
+                    alt="Dashboard"
+                    style={{ width: '100%', borderRadius: '8px', display: 'block', aspectRatio: '16/10', objectFit: 'cover' }}
+                  />
+                </div>
+                <div style={{ height: 8, background: 'linear-gradient(to bottom, #1a1a2e, #0d0d1a)', borderLeft: '2px solid rgba(124,58,237,0.25)', borderRight: '2px solid rgba(124,58,237,0.25)' }} />
+                <div style={{ height: 22, background: 'linear-gradient(to bottom, #1c1c2e, #141422)', borderRadius: '0 0 12px 12px', border: '2px solid rgba(124,58,237,0.2)', borderTop: 'none' }} />
+              </div>
+              <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Laptop size={18} color="#7c3aed" />
+                Desktop
+              </h3>
+              <p style={{ color: '#64748b', fontSize: 13, textAlign: 'center', marginTop: 8 }}>Full-featured dashboard</p>
+            </div>
+
+            {/* Mobile mockup */}
+            <div className="animate-on-scroll" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ width: '100%', maxWidth: 180, marginBottom: 24 }}>
+                <div style={{ position: 'relative', width: '100%', background: '#0d0d1a', border: '8px solid #1a1a2e', borderRadius: 40, padding: '0', overflow: 'hidden', boxShadow: '0 -4px 40px rgba(124,58,237,0.15), inset 0 0 0 1px rgba(124,58,237,0.2)' }}>
+                  <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 120, height: 26, background: '#1a1a2e', borderRadius: '0 0 24px 24px', zIndex: 10, border: '1px solid rgba(124,58,237,0.2)' }} />
+                  <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80"
+                    alt="Mobile Dashboard"
+                    style={{ width: '100%', display: 'block', aspectRatio: '9/16', objectFit: 'cover', marginTop: 12 }}
+                  />
+                </div>
+              </div>
+              <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Smartphone size={18} color="#10b981" />
+                Mobile
+              </h3>
+              <p style={{ color: '#64748b', fontSize: 13, textAlign: 'center', marginTop: 8 }}>Responsive on the go</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service categories */}
       <section style={{ padding: '80px 24px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 60 }}>
           {services.map(({ icon: Icon, category, color, items }) => (
-            <div key={category}>
+            <div key={category} className="animate-on-scroll">
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: color + '22', border: '1px solid ' + color + '44', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Icon size={18} color={color} />
@@ -90,9 +151,9 @@ export default function Services() {
       {/* Extra chips */}
       <section style={{ padding: '40px 24px 80px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
+          <div className="stagger-children" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
             {extras.map(({ icon: Icon, label }) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 100 }}>
+              <div key={label} className="animate-on-scroll" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 100 }}>
                 <Icon size={14} color="#7c3aed" />
                 <span style={{ color: '#94a3b8', fontSize: 13 }}>{label}</span>
               </div>
