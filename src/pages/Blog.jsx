@@ -40,7 +40,7 @@ const posts = [
     category: 'Data & Analytics',
     date: 'Mar 1, 2024',
     readTime: '9 min',
-    excerpt: 'CDPs are changing how teams understand customers. Here's how to implement and get immediate results.',
+    excerpt: "CDPs are changing how teams understand customers. Here's how to implement and get immediate results.",
     color: '#ec4899'
   },
   {
