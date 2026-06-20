@@ -9,6 +9,7 @@ import Portfolio from './pages/Portfolio.jsx'
 import Contact from './pages/Contact.jsx'
 import Pricing from './pages/Pricing.jsx'
 import Blog from './pages/Blog.jsx'
+import CaseStudies from './pages/CaseStudies.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import { refreshScrollAnimations } from './scrollUtils.js'
@@ -32,9 +33,10 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
