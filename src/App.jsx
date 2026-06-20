@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
 import About from './pages/About.jsx'
@@ -25,23 +26,25 @@ function ScrollReset() {
 
 export default function App() {
   return (
-    <div style={{ minHeight: '100vh', background: '#080810' }}>
-      <ScrollReset />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-      <Footer />
-      <ScrollToTop />
-    </div>
+    <ThemeProvider>
+      <div style={{ minHeight: '100vh', background: '#080810' }}>
+        <ScrollReset />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </ThemeProvider>
   )
 }
