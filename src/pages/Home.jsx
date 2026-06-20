@@ -87,7 +87,7 @@ export default function Home() {
                     </div>
                     {/* Dashboard screenshot */}
                     <img
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80"
+                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&auto=format&fit=crop&q=80"
                       alt="MarketAI dashboard"
                       style={{ width: '100%', borderRadius: '8px 8px 0 0', display: 'block', aspectRatio: '16/10', objectFit: 'cover' }}
                     />
