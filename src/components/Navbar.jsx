@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Zap, LayoutDashboard } from 'lucide-react'
+import { Menu, X, Zap, LayoutDashboard, Sun, Moon } from 'lucide-react'
+import { useTheme } from '../contexts/ThemeContext'
 
 const nav = [
   { to: '/', label: 'Home' },
@@ -17,9 +18,10 @@ export default function Navbar() {
   const loc = useLocation()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { isDark, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -29,9 +31,9 @@ export default function Navbar() {
   return (
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      background: scrolled ? 'rgba(8,8,16,0.95)' : 'transparent',
+      background: scrolled ? 'rgba(8,8,16,0.85)' : 'rgba(8,8,16,0)',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(124,58,237,0.15)' : '1px solid transparent',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
       transition: 'all 0.3s ease'
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -69,6 +71,13 @@ export default function Navbar() {
           }} className="hidden md:flex">
             <LayoutDashboard size={14} /> Demo
           </Link>
+          <button onClick={toggleTheme} style={{
+            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+            padding: '8px', borderRadius: 8, color: '#94a3b8', cursor: 'pointer', display: 'flex',
+            alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s'
+          }} className="hidden md:flex">
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
           <Link to="/contact" style={{
             textDecoration: 'none', padding: '9px 20px', borderRadius: 8, fontSize: 13, fontWeight: 600,
             background: 'linear-gradient(135deg,#7c3aed,#4f46e5)', color: 'white',
