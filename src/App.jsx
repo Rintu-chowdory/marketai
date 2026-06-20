@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import CookieBanner from './components/CookieBanner.jsx'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
@@ -44,6 +45,7 @@ export default function App() {
         </Routes>
         <Footer />
         <ScrollToTop />
+        <CookieBanner />
       </div>
     </ThemeProvider>
   )
