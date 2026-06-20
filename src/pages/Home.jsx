@@ -18,10 +18,15 @@ const features = [
 ]
 
 const testimonials = [
-  { name: 'Sarah Chen', role: 'CMO at Vortex', text: 'MarketAI tripled our lead quality in 60 days. The predictive scoring alone saved us 40% of wasted ad spend.', rating: 5 },
-  { name: 'Marcus Osei', role: 'Growth Lead at Luminary', text: 'The AI-generated content outperformed our hand-written copy. Completely changed how our team thinks about scale.', rating: 5 },
-  { name: 'Priya Nair', role: 'Founder at ShiftBase', text: "We went from 200 to 2,000 monthly qualified leads in one quarter. I wish we'd found this sooner.", rating: 5 },
+  { name: 'Sarah Chen', role: 'CMO at Vortex', company: 'Vortex', initials: 'SC', text: 'MarketAI tripled our lead quality in 60 days. The predictive scoring alone saved us 40% of wasted ad spend.', rating: 5 },
+  { name: 'Marcus Osei', role: 'Growth Lead at Luminary', company: 'Luminary', initials: 'MO', text: 'The AI-generated content outperformed our hand-written copy. Completely changed how our team thinks about scale.', rating: 5 },
+  { name: 'Priya Nair', role: 'Founder at ShiftBase', company: 'ShiftBase', initials: 'PN', text: "We went from 200 to 2,000 monthly qualified leads in one quarter. I wish we'd found this sooner.", rating: 5 },
+  { name: 'Alex Rivera', role: 'VP Marketing at TechFlow', company: 'TechFlow', initials: 'AR', text: 'The platform pays for itself within the first month. Our ROI is up 340% and our team loves the automation.', rating: 5 },
+  { name: 'Jessica Walsh', role: 'Growth Manager at Velocity', company: 'Velocity', initials: 'JW', text: 'Finally, a tool that understands our audience better than we do. Recommendations are scarily accurate.', rating: 5 },
+  { name: 'David Kumar', role: 'Founder at NexGen', company: 'NexGen', initials: 'DK', text: 'We reduced our campaign planning time by 70%. What used to take weeks now takes days. Game changer.', rating: 5 },
 ]
+
+const avatarColors = ['#7c3aed', '#0ea5e9', '#10b981', '#f59e0b', '#ec4899', '#14b8a6']
 
 export default function Home() {
   return (
@@ -156,6 +161,175 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Animated Demo Section ── */}
+      <section style={{ padding: '100px 24px', background: '#080810' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 64 }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.25)', borderRadius: 100, padding: '5px 16px', marginBottom: 20 }}>
+              <BarChart3 size={13} color="#a78bfa" />
+              <span style={{ color: '#a78bfa', fontSize: 13, fontWeight: 500 }}>Live Dashboard</span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(28px,4vw,46px)', fontWeight: 900, color: 'white', letterSpacing: '-1.2px', marginBottom: 16 }}>
+              See it in action
+            </h2>
+            <p style={{ color: '#64748b', fontSize: 17, maxWidth: 520, margin: '0 auto' }}>
+              Real-time metrics, AI-powered insights, and predictive analytics all in one dashboard.
+            </p>
+          </div>
+
+          <div className="animate-on-scroll" style={{ 
+            background: 'rgba(255,255,255,0.03)', 
+            border: '1px solid rgba(124,58,237,0.25)',
+            borderRadius: 24, 
+            padding: '40px 32px',
+            backdropFilter: 'blur(12px)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            {/* Grid background */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'linear-gradient(rgba(124,58,237,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.08) 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+              pointerEvents: 'none',
+              borderRadius: 24
+            }} />
+
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              {/* Top header bar */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: 40,
+                paddingBottom: 24,
+                borderBottom: '1px solid rgba(255,255,255,0.1)'
+              }}>
+                <div>
+                  <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Campaign Performance</h3>
+                  <p style={{ color: '#64748b', fontSize: 13 }}>Last 30 days</p>
+                </div>
+                <div style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: '50%',
+                  background: '#10b981',
+                  animation: 'pulse 2s infinite',
+                  boxShadow: '0 0 15px rgba(16,185,129,0.6)'
+                }} />
+              </div>
+
+              {/* Metrics grid */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: 24,
+                marginBottom: 40
+              }}>
+                {[
+                  { label: 'Total Conversions', value: '24,582', change: '+24%', color: '#7c3aed' },
+                  { label: 'Avg. ROI', value: '384%', change: '+12.5%', color: '#0ea5e9' },
+                  { label: 'Lead Quality Score', value: '9.2/10', change: '+3.1%', color: '#10b981' },
+                  { label: 'Cost per Lead', value: '$4.82', change: '-18%', color: '#f59e0b' }
+                ].map((metric, idx) => (
+                  <div key={metric.label} style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(124,58,237,0.15)',
+                    borderRadius: 16,
+                    padding: '20px',
+                    animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`
+                  }}>
+                    <div style={{ color: '#64748b', fontSize: 12, marginBottom: 12, fontWeight: 500 }}>{metric.label}</div>
+                    <div style={{
+                      fontSize: 28,
+                      fontWeight: 900,
+                      color: 'white',
+                      marginBottom: 8,
+                      animation: `countUp 2s ease-out ${idx * 0.1}s both`
+                    }}>
+                      {metric.value}
+                    </div>
+                    <div style={{ color: metric.color, fontSize: 13, fontWeight: 600 }}>
+                      {metric.change}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Chart visualization */}
+              <div style={{
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(124,58,237,0.15)',
+                borderRadius: 16,
+                padding: '24px',
+                marginBottom: 0
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 180, justifyContent: 'space-around' }}>
+                  {[65, 78, 45, 92, 58, 88, 72, 95, 68, 82, 76, 88].map((height, idx) => (
+                    <div key={idx} style={{
+                      flex: 1,
+                      background: `linear-gradient(180deg, ${['#7c3aed', '#0ea5e9', '#10b981', '#f59e0b'][idx % 4]} 0%, ${['#7c3aed', '#0ea5e9', '#10b981', '#f59e0b'][idx % 4]}55 100%)`,
+                      borderRadius: '4px 4px 0 0',
+                      animation: `barGrow 1s ease-out ${idx * 0.08}s both`,
+                      height: `${height}%`,
+                      minHeight: '8px'
+                    }} />
+                  ))}
+                </div>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  marginTop: 16,
+                  color: '#64748b',
+                  fontSize: 12
+                }}>
+                  <span>Week 1</span>
+                  <span>Week 4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes slideUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          @keyframes countUp {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          @keyframes barGrow {
+            from {
+              height: 0 !important;
+            }
+            to {
+              height: inherit !important;
+            }
+          }
+          @keyframes pulse {
+            0%, 100% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.6;
+            }
+          }
+        `}</style>
+      </section>
+
       {/* ── Testimonials ── */}
       <section style={{ padding: '100px 24px', background: '#080810' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -167,17 +341,42 @@ export default function Home() {
           </div>
 
           <div className="stagger-children" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 24 }}>
-            {testimonials.map(({ name, role, text, rating }) => (
-              <div key={name} className="glass" style={{ padding: '28px', borderRadius: 18, transition: 'all 0.3s' }}
+            {testimonials.map(({ name, role, initials, text, rating }, idx) => (
+              <div key={name} className="glass" style={{ 
+                padding: '28px', 
+                borderRadius: 18, 
+                transition: 'all 0.3s',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor='rgba(124,58,237,0.35)'; e.currentTarget.style.transform='translateY(-4px)' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(255,255,255,0.08)'; e.currentTarget.style.transform='translateY(0)' }}>
+                
                 <div style={{ display: 'flex', gap: 2, marginBottom: 16 }}>
                   {Array(rating).fill(0).map((_, i) => <Star key={i} size={14} color="#f59e0b" fill="#f59e0b" />)}
                 </div>
-                <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.75, marginBottom: 22 }}>"{text}"</p>
-                <div>
-                  <div style={{ color: 'white', fontWeight: 700, fontSize: 14 }}>{name}</div>
-                  <div style={{ color: '#64748b', fontSize: 13 }}>{role}</div>
+                
+                <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.75, marginBottom: 22, flex: 1 }}>"{text}"</p>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: '50%',
+                    background: `linear-gradient(135deg, ${avatarColors[idx % avatarColors.length]}, ${avatarColors[(idx + 1) % avatarColors.length]})`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: 'white'
+                  }}>
+                    {initials}
+                  </div>
+                  <div>
+                    <div style={{ color: 'white', fontWeight: 700, fontSize: 14 }}>{name}</div>
+                    <div style={{ color: '#64748b', fontSize: 13 }}>{role}</div>
+                  </div>
                 </div>
               </div>
             ))}
