@@ -13,6 +13,7 @@ import Pricing from './pages/Pricing.jsx'
 import Blog from './pages/Blog.jsx'
 import CaseStudies from './pages/CaseStudies.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import Datenschutz from './pages/Datenschutz.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import { refreshScrollAnimations } from './scrollUtils.js'
 
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
