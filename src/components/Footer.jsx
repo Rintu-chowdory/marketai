@@ -19,6 +19,8 @@ const footerLinks = {
     { label: 'Terms of Service', to: '/terms' },
     { label: 'Cookie Policy', to: '/cookies' },
     { label: 'Security', to: '/security' },
+    { label: 'Datenschutz', to: '/datenschutz' },
+    { label: 'Impressum', to: '/impressum' },
   ],
 }
 
